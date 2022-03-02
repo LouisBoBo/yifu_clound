@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <item android:drawable="@drawable/splash_bg" />
+    <item
+        android:width="80dp"
+        android:height="80dp"
+        android:bottom="300dp"
+        android:drawable="@drawable/app_logo"
+        android:gravity="center" />
+    <item
+        android:width="200dp"
+        android:height="30dp"
+        android:bottom="100dp"
+        android:drawable="@drawable/splash_app_name"
+        android:gravity="center" />
+    <item
+        android:width="219dp"
+        android:height="12dp"
+        android:bottom="30dp"
+        android:drawable="@drawable/splash_bot_img"
+        android:gravity="bottom|center" />
+</layer-list>

@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+MobSDK {
+    appKey "XXXXXX"
+    appSecret "XXXXXXXXX"
+    permissions {//不需要的权限可以在这里移除
+        exclude "android.permission.RECEIVE_SMS", "android.permission.READ_SMS", "android.permission.READ_CONTACTS", "android.permission.BLUETOOTH"
+    }
+    SMSSDK {}//没用到短信验证码，可以去掉
+    ShareSDK {
+        devInfo {
+            Wechat {//微信
+                appId "XXXXX"
+                appSecret "XXXXXXXXX"
+            }
+            QQ {//QQ
+                appId "XXXXXX"
+                appKey "XXXXXX"
+            }
+        }
+    }
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.exc.myapplication"
+        minSdkVersion 22
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation project(path: ':xui_lib')
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    compile 'commons-net:commons-net:3.5'
+
+    implementation project(path: ':baseokhttp_v3')
+    implementation project(path: ':xui_lib')
+
+    implementation 'com.zhy:okhttputils:2.6.2'
+    //腾讯的键值对存储mmkv
+    implementation 'com.tencent:mmkv:1.0.22'
+    //屏幕适配AutoSize
+    implementation 'me.jessyan:autosize:1.1.2'
+
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+
+    compile 'com.github.gturedi:stateful-layout:1.2.1'
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+}

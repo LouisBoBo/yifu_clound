@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/pink_color"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/headview_back_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/back_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/head_contnet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="账号与安全"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/headview_back_img"
+            app:layout_constraintEnd_toStartOf="@id/head_right"/>
+
+        <TextView
+            android:id="@+id/head_right"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/head_contnet"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/baseview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/headview"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <include
+            android:id="@+id/view_login_pwd"
+            layout="@layout/item_fg_mine"/>
+
+        <include
+            android:id="@+id/view_bing_phone"
+            layout="@layout/item_fg_mine"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
