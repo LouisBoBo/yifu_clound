@@ -26,7 +26,7 @@
             android:id="@+id/head_contnet"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="关于"
+            android:text="意见反馈"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="20sp"

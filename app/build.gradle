@@ -26,7 +26,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.exc.myapplication"
+        applicationId "com.yssj.myapplication"
         minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
@@ -48,6 +48,14 @@ android {
 
     viewBinding {
         enabled = true
+    }
+
+
+    sourceSets {
+        main {
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['src/main/jniLibs']//说了这么多就只有这一行是最实在的，就是大家所需要的，中括号填的是so文件所在的路径
+        }
     }
 }
 
