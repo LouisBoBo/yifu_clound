@@ -71,6 +71,11 @@ public class HttpApi {
      */
     public static String USER_GET_PHONE_CODE = YSS_URL_ANDROID + "user/get_phone_code";
 
+    /**
+     * 验证手机
+     */
+    public static String USER_CHECKPHONE = YSS_URL_ANDROID + "user/checkPhone";
+
     /****
      * 绑定手机-验证短信验证码
      */

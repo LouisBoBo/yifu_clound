@@ -156,14 +156,31 @@ public class DoBindingPhoneActivity extends BaseActivity implements View.OnClick
         });
     }
 
+    //验证手机
+    public void checkPhoneHttp(){
+        Parameter parameter = new Parameter();
+        parameter.put("version","V1.32");
+        parameter.put("phone",binding.etPhoneNum.getText().toString());
+
+        HttpRequest.POST(getActivity(), HttpApi.USER_CHECKPHONE, parameter, new BeanResponseListener<BaseBean>() {
+
+            @Override
+            public void onResponse(BaseBean lampDeviceListBean, Exception error) {
+                mMessageLoader.dismiss();
+                if(error == null){
+                    XToastUtils.toast("操作成功");
+                    checkPhoneCodeHttp();
+                }
+            }
+
+        });
+    }
+
     //验证code绑定手机
     public void checkPhoneCodeHttp(){
         Parameter parameter = new Parameter();
         parameter.put("version","V1.32");
-        parameter.put("phone",binding.etPhoneNum.getText().toString());
-        parameter.put("codetype",7);
-        parameter.put("merge",1);
-        parameter.put("vcode",binding.etAuto.getText().toString());
+        parameter.put("vcode",binding.etCode.getText().toString());
 
 
         HttpRequest.POST(getActivity(), HttpApi.CHECKCODE, parameter, new BeanResponseListener<BaseBean>() {
@@ -208,7 +225,7 @@ public class DoBindingPhoneActivity extends BaseActivity implements View.OnClick
                 if(binding.etCode.getText().length() !=4){
                     return;
                 }
-                checkPhoneCodeHttp();
+                checkPhoneHttp();//先验证手机再验证短信
             }
 
             binding.llGetCode.setVisibility(View.VISIBLE);
